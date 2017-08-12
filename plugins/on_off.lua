@@ -23,7 +23,7 @@ local function enable_channel(receiver)
  _config.disabled_channels[receiver] = false
 
  save_config()
- return "(@Cafegrm) ربات روشن شد!"
+ return "ربات روشن شد!"
 end
 
 local function disable_channel( receiver )
