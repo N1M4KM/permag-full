@@ -37,7 +37,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'bot has been added ✅ in Group'..msg.to.title
+	  local text = 'bot has been added  in Group'..msg.to.title
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -61,7 +61,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-      local text = 'bot has been removed ❎ in Group'..msg.to.title
+      local text = 'bot has been removed  in Group'..msg.to.title
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -182,9 +182,9 @@ local function lock_group_links(msg, data, target)
    local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-   return reply_msg(msg.id,'🔒قفل لینڪ دَږ سۅپږگږۊه ازقبل فَعال بود🔒', ok_cb, false)
+   return reply_msg(msg.id,'قفل لینڪ دَږ سۅپږگږۊه ازقبل فَعال بود', ok_cb, false)
    else
-    return reply_msg(msg.id,'🔐Link Posting is already locked🔒', ok_cb, false)
+    return reply_msg(msg.id,'Link Posting is already locked', ok_cb, false)
     end
     end
     data[tostring(target)]['settings']['lock_link'] = 'yes'
@@ -192,9 +192,9 @@ local function lock_group_links(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return reply_msg(msg.id,'🔒قفل لینڪ دَږ سۅپږگږۊه فعال شُد🔒', ok_cb, false)
+  return reply_msg(msg.id,'قفل لینڪ دَږ سۅپږگږۊه فعال شُد', ok_cb, false)
      else
-    return reply_msg(msg.id,'🔐Link Posting Has Been Locked🔒', ok_cb, false)
+    return reply_msg(msg.id,'Link Posting Has Been Locked', ok_cb, false)
   end
 end
 
@@ -207,9 +207,9 @@ local function unlock_group_links(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-   return reply_msg(msg.id,'🔒قفل لینڪ دَږ سۅپږگږۊه غیږفعال شُده بود🔓', ok_cb, false)
+   return reply_msg(msg.id,'قفل لینڪ دَږ سۅپږگږۊه غیږفعال شُده بود', ok_cb, false)
     else 
-   return reply_msg(msg.id,'🔐Link Posting is already Unlocked🔓', ok_cb, false)
+   return reply_msg(msg.id,'Link Posting is already Unlocked', ok_cb, false)
     end
     end
     data[tostring(target)]['settings']['lock_link'] = 'no'
@@ -217,9 +217,9 @@ local function unlock_group_links(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return reply_msg(msg.id,'🔒قفل لینڪ دَږ سۅپږگږۊه غیږفعال شُد🔓', ok_cb, false)
+    return reply_msg(msg.id,'قفل لینڪ دَږ سۅپږگږۊه غیږفعال شُد', ok_cb, false)
      else 
-   return reply_msg(msg.id,'🔐Link Posting Hasbeen unLocked🔓', ok_cb, false)
+   return reply_msg(msg.id,'Link Posting Hasbeen unLocked', ok_cb, false)
   end
 end
 
@@ -232,9 +232,9 @@ local function lock_group_cmds(msg, data, target)
    local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-   return '🔒قفل دستورات بسته بود🔒'
+   return 'قفل دستورات بسته بود'
    else
-    return '🔐cmds Posting is already locked🔒'
+    return 'cmds Posting is already locked'
     end
     end
     data[tostring(target)]['settings']['cmds'] = 'yes'
@@ -242,9 +242,9 @@ local function lock_group_cmds(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل دستورات بسته شد🔒'
+    return 'قفل دستورات بسته شد'
      else
-    return '🔐cmds Posting Has Been Locked🔒'
+    return 'cmds Posting Has Been Locked'
   end
 end
 
@@ -257,9 +257,9 @@ local function unlock_group_cmds(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل دستورات غیرفعال بود🔓'
+    return 'قفل دستورات غیرفعال بود'
     else 
-    return '🔐cmds Posting is already Unlocked🔓'
+    return 'cmds Posting is already Unlocked'
     end
     end
     data[tostring(target)]['settings']['cmds'] = 'no'
@@ -267,9 +267,9 @@ local function unlock_group_cmds(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل دستورات فعال شد🔓'
+    return 'قفل دستورات فعال شد'
      else 
-     return '🔐cmds Posting Hasbeen unLocked🔓'
+     return 'cmds Posting Hasbeen unLocked'
   end
 end 
 
@@ -282,9 +282,9 @@ local function lock_group_leave(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل ترک گروه=ban فعال بۅڍ🔒'
+  return ' قُفل ترک گروه=ban فعال بۅڍ'
   else
-    return '🔐leave is already locked🔐'
+    return 'leave is already locked'
     end
     end
     data[tostring(target)]['settings']['leave'] = 'yes'
@@ -292,9 +292,9 @@ local function lock_group_leave(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل ترک گروه=ban فعال شد🔒'
+  return ' قُفل ترک گروه=ban فعال شد'
   else
-    return '🔐leave has been locked🔐'
+    return 'leave has been locked'
   end
 end
 
@@ -307,9 +307,9 @@ local function unlock_group_leave(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تږک گږوه=ban غیږ فعال بۅد🔒'
+  return ' قُفل تږک گږوه=ban غیږ فعال بۅد'
   else
-    return '🔓leave is not locked🔓'
+    return 'leave is not locked'
   end
   end
     data[tostring(target)]['settings']['leave'] = 'no'
@@ -317,9 +317,9 @@ local function unlock_group_leave(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تږک گږوه=ban غیږ فعال شُد🔒'
+  return ' قُفل تږک گږوه=ban غیږ فعال شُد'
   else
-    return '🔓leave has been unlocked🔓'
+    return 'leave has been unlocked'
   end
 end
 local function lock_group_operator(msg, data, target)
@@ -331,9 +331,9 @@ local function lock_group_operator(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تبلیغات شارژ(ایرانسل،همراه،رایتل)فعال بود🔒'
+  return ' قُفل تبلیغات شارژ(ایرانسل،همراه،رایتل)فعال بود'
   else
-    return '🔐Operator is already locked🔐'
+    return 'Operator is already locked'
   end
   end
     data[tostring(target)]['settings']['operator'] = 'yes'
@@ -341,9 +341,9 @@ local function lock_group_operator(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تبلیغات شارژ(ایرانسل،همراه،رایتل)فعال شد🔒'
+  return ' قُفل تبلیغات شارژ(ایرانسل،همراه،رایتل)فعال شد'
   else
-    return '🔐Operator has been locked🔐'
+    return 'Operator has been locked'
   end
 end
 
@@ -356,9 +356,9 @@ local function unlock_group_operator(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تبلیغات شارژ(ایرانسل،همراه،رایتل)غیرفعال بود🔒'
+  return ' قُفل تبلیغات شارژ(ایرانسل،همراه،رایتل)غیرفعال بود'
   else
-    return '🔓Operator is not locked🔓'
+    return 'Operator is not locked'
   end
   end
     data[tostring(target)]['settings']['operator'] = 'no'
@@ -366,9 +366,9 @@ local function unlock_group_operator(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تبلیغات شارژ(ایرانسل،همراه،رایتل)غیرفعال شد🔒'
+  return ' قُفل تبلیغات شارژ(ایرانسل،همراه،رایتل)غیرفعال شد'
   else
-    return '🔓Operator has been unlocked🔓'
+    return 'Operator has been unlocked'
   end
 end
 
@@ -381,9 +381,9 @@ local function lock_group_username(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل یوزرنیم(@) دږ سوپرگږوه فعال بود🔒'
+  return 'قُفل یوزرنیم(@) دږ سوپرگږوه فعال بود'
   else
-    return '🔒Username is already locked🔒'
+    return 'Username is already locked'
   end
   end
     data[tostring(target)]['settings']['username'] = 'yes'
@@ -391,9 +391,9 @@ local function lock_group_username(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل یوزرنیم(@) دږ سوپرگږوه فعال شد🔒'
+  return 'قُفل یوزرنیم(@) دږ سوپرگږوه فعال شد'
   else
-    return '🔒Username has been locked🔒'
+    return 'Username has been locked'
   end
 end
 
@@ -406,9 +406,9 @@ local function unlock_group_username(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل یوزرنیم(@) دږ سوپرگږوه غیږفعال بود🔒'
+  return 'قُفل یوزرنیم(@) دږ سوپرگږوه غیږفعال بود'
   else
-    return '🔓Username is not locked🔓'
+    return 'Username is not locked'
   end
   end
     data[tostring(target)]['settings']['username'] = 'no'
@@ -416,9 +416,9 @@ local function unlock_group_username(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل یوزرنیم(@) دږ سوپرگږوه غیږفعال شد🔒'
+  return 'قُفل یوزرنیم(@) دږ سوپرگږوه غیږفعال شد'
   else
-    return '🔓Username has been unlocked🔓'
+    return 'Username has been unlocked'
   end
 end
 
@@ -431,9 +431,9 @@ local function lock_group_media(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه فعال بود🔒'
+    return 'قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه فعال بود'
     else
-    return '🔒Media is already locked🔒'
+    return 'Media is already locked'
   end
   end
     data[tostring(target)]['settings']['media'] = 'yes'
@@ -441,9 +441,9 @@ local function lock_group_media(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه فعال شُڍ🔒'
+    return 'قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه فعال شُڍ'
     else 
-    return '🔒Media has been locked🔒'
+    return 'Media has been locked'
   end
 end
 
@@ -456,9 +456,9 @@ local function unlock_group_media(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-   return  '🔐قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه غیر فعال بود🔓'
+   return  'قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه غیر فعال بود'
    else
-    return '🔓Media is not locked🔓'
+    return 'Media is not locked'
     end
     end
     data[tostring(target)]['settings']['media'] = 'no'
@@ -466,9 +466,9 @@ local function unlock_group_media(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه غیر فعال شُڍ🔓'
+    return 'قُفل فیلم،عکس،آهنگ دږ سۅپږگږوه غیر فعال شُڍ'
     else
-    return '🔓Media has been unlocked🔓'
+    return 'Media has been unlocked'
   end
 end
 
@@ -481,9 +481,9 @@ local function lock_group_fosh(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐فیلتږینگ کلماټ +18 دږ سوپږ گږۅه فعاڶ شُده بۅد🔒'
+    return 'فیلتږینگ کلماټ +18 دږ سوپږ گږۅه فعاڶ شُده بۅد'
     else
-    return '🔒Fosh is already locked🔒'
+    return 'Fosh is already locked'
   end
   end
     data[tostring(target)]['settings']['fosh'] = 'yes'
@@ -491,9 +491,9 @@ local function lock_group_fosh(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐فیلتږینگ کلماټ +18 دږ سوپږ گږۅه فعاڶ شُد🔒'
+    return 'فیلتږینگ کلماټ +18 دږ سوپږ گږۅه فعاڶ شُد'
     else
-    return '🔒Fosh has been locked🔒'
+    return 'Fosh has been locked'
   end
 end
 
@@ -506,9 +506,9 @@ local function unlock_group_fosh(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐فیلتږینگ کلماټ +18 دږ سوپږ گږۅه غیږ فعاڶ شُدة بۅڊ🔓'
+    return 'فیلتږینگ کلماټ +18 دږ سوپږ گږۅه غیږ فعاڶ شُدة بۅڊ'
   else
-  return '🔓Fosh is not locked🔓'
+  return 'Fosh is not locked'
   end
   end
     data[tostring(target)]['settings']['fosh'] = 'no'
@@ -516,9 +516,9 @@ local function unlock_group_fosh(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐فیلتږینگ کلماټ +18 دږ سوپږ گږۅه غیږ فعاڶ شُد🔓'
+    return 'فیلتږینگ کلماټ +18 دږ سوپږ گږۅه غیږ فعاڶ شُد'
     else
-    return '🔓Fosh has been unlocked🔓'
+    return 'Fosh has been unlocked'
   end
 end
 
@@ -531,7 +531,7 @@ local function lock_group_rtl(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل Rtl دږ سوپږ گروه فعال بود🔒'
+  return 'قُفل Rtl دږ سوپږ گروه فعال بود'
   else
    return '*RTL is already locked'
   end
@@ -541,7 +541,7 @@ local function lock_group_rtl(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل Rtl دږ سوپږ گروه فعال شد🔒'
+  return 'قُفل Rtl دږ سوپږ گروه فعال شد'
   else
     return '*RTL has been locked'
   end
@@ -556,7 +556,7 @@ local function unlock_group_rtl(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل Rtl دږ سوپږ گروه غیر فعال بود🔒'
+  return ' قُفل Rtl دږ سوپږ گروه غیر فعال بود'
   else
     return '*RTL is already unlocked'
   end
@@ -566,7 +566,7 @@ local function unlock_group_rtl(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل Rtl دږ سوپږ گروه غیر فعال شد🔒'
+  return ' قُفل Rtl دږ سوپږ گروه غیر فعال شد'
   else
     return '*RTL has been unlocked'
   end
@@ -582,9 +582,9 @@ local function lock_group_join(msg, data, target)
    local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قُفل وږۅڍ افږاڍ از طریق لینک فعال بود🔒'
+    return 'قُفل وږۅڍ افږاڍ از طریق لینک فعال بود'
     else
-    return '🔒Join is already locked🔒'
+    return 'Join is already locked'
     end
     end
     data[tostring(target)]['settings']['join'] = 'yes'
@@ -592,9 +592,9 @@ local function lock_group_join(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قُفل وږۅڍ افږاڍ از طریق لینک فعال شُد🔒'
+    return 'قُفل وږۅڍ افږاڍ از طریق لینک فعال شُد'
     else
-    return '🔒Join has been locked🔒'
+    return 'Join has been locked'
   end
 end
 
@@ -607,9 +607,9 @@ local function unlock_group_join(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قُفل وږۅڍ افږاڍ از طریق لینک غیر فعال بود🔒'
+    return 'قُفل وږۅڍ افږاڍ از طریق لینک غیر فعال بود'
     else
-    return '🔓Join is not locked🔓'
+    return 'Join is not locked'
     end
     end
     data[tostring(target)]['settings']['join'] = 'no'
@@ -617,9 +617,9 @@ local function unlock_group_join(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قُفل وږۅڍ افږاڍ از طریق لینک غیر فعال شُد🔒'
+    return 'قُفل وږۅڍ افږاڍ از طریق لینک غیر فعال شُد'
     else
-    return '🔓Join has been unlocked🔓'
+    return 'Join has been unlocked'
   end
 end
 
@@ -659,7 +659,7 @@ local function lock_group_fwd(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل فۅږواږد دږ سوپږ گرۅه فعال بود🔒'
+  return ' قُفل فۅږواږد دږ سوپږ گرۅه فعال بود'
   else
     return 'fwd posting is already locked'
   end
@@ -669,9 +669,9 @@ local function lock_group_fwd(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قفل فۅږۅاږد دږ سۅپږ گږۅة فعاڶ شُد🔒'
+    return 'قفل فۅږۅاږد دږ سۅپږ گږۅة فعاڶ شُد'
     else
-    return ' 🔐Fwd has been locked🔐'
+    return ' Fwd has been locked'
   end
 end
 
@@ -684,9 +684,9 @@ local function unlock_group_fwd(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قفل فۅږۅاږد دږ سۅپږگږۅة از قبل غیږ فعاڶ شُدہ بۅڍ🔒'
+    return 'قفل فۅږۅاږد دږ سۅپږگږۅة از قبل غیږ فعاڶ شُدہ بۅڍ'
   else
-  return ' 🔓Fwd is not locked🔓'
+  return ' Fwd is not locked'
   end
   end
     data[tostring(target)]['settings']['lock_fwd'] = 'no'
@@ -694,9 +694,9 @@ local function unlock_group_fwd(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قفل فۅږۅاږد دږ سۅپږ گږۅة غیرفعاڶ شُد🔒'
+    return 'قفل فۅږۅاږد دږ سۅپږ گږۅة غیرفعاڶ شُد'
     else
-    return ' 🔓Fwd has been unlocked🔓'
+    return ' Fwd has been unlocked'
   end
 end
 
@@ -709,9 +709,9 @@ local function lock_group_english(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل چَت ڪږدڹ بہ زبان انگلیسے فعال بود🔒'
+  return 'قُفل چَت ڪږدڹ بہ زبان انگلیسے فعال بود'
   else
-    return '🔒English is already locked🔒'
+    return 'English is already locked'
   end
   end
     data[tostring(target)]['settings']['english'] = 'yes'
@@ -719,9 +719,9 @@ local function lock_group_english(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-   return '🔐قُفل چَت ڪږدڹ بہ زبان انگلیسے فعال شُد🔒'
+   return 'قُفل چَت ڪږدڹ بہ زبان انگلیسے فعال شُد'
    else
-    return '🔒English has been locked🔒'
+    return 'English has been locked'
   end
 end
 
@@ -734,9 +734,9 @@ local function unlock_group_english(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل چَت ڪږدڹ بہ زبان انگلیسے غیږ فعال بود🔒'
+  return 'قُفل چَت ڪږدڹ بہ زبان انگلیسے غیږ فعال بود'
   else
-    return '🔓English is not locked🔓'
+    return 'English is not locked'
   end
   end
     data[tostring(target)]['settings']['english'] = 'no'
@@ -744,9 +744,9 @@ local function unlock_group_english(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل چَت ڪږدڹ بہ زبان انگلیسے غیږ فعال شُد🔒'
+  return 'قُفل چَت ڪږدڹ بہ زبان انگلیسے غیږ فعال شُد'
   else
-    return '🔓English has been unlocked🔓'
+    return 'English has been unlocked'
   end
 end
 
@@ -759,9 +759,9 @@ local function lock_group_emoji(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قـفـل اموجی در سـوپـرگـروه از قـبـل فـعـال بـود🔒'
+    return 'قـفـل اموجی در سـوپـرگـروه از قـبـل فـعـال بـود'
   else
-  return '🔒emoji is already locked🔒'
+  return 'emoji is already locked'
   end
   end
     data[tostring(target)]['settings']['lock_emoji'] = 'yes'
@@ -769,9 +769,9 @@ local function lock_group_emoji(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قـفـل اموجی در سـوپـرگـروه فـعـال شـد🔒'
+    return 'قـفـل اموجی در سـوپـرگـروه فـعـال شـد'
     else 
-    return '🔒emoji has been locked🔒'
+    return 'emoji has been locked'
   end
 end
 
@@ -784,9 +784,9 @@ local function unlock_group_emoji(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔓قـفـل اموجی در سـوپـرگـروه از قـبـل غـیـرفـعـال بـوده🔓'
+    return 'قـفـل اموجی در سـوپـرگـروه از قـبـل غـیـرفـعـال بـوده'
   else
-  return '🔓emoji is not locked🔓'
+  return 'emoji is not locked'
   end
   end
     data[tostring(target)]['settings']['lock_emoji'] = 'no'
@@ -794,9 +794,9 @@ local function unlock_group_emoji(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔓قـفـل اموجی در سـوپـرگـروه غـیـرفـعـال شـد🔓'
+    return 'قـفـل اموجی در سـوپـرگـروه غـیـرفـعـال شـد'
     else
-    return '🔓emoji has been unlocked🔓'
+    return 'emoji has been unlocked'
   end
 end
 
@@ -809,9 +809,9 @@ local function lock_group_tag(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل هشتگ(#) دږ سوپږگږوه فعال بود🔒'
+  return 'قُفل هشتگ(#) دږ سوپږگږوه فعال بود'
   else
-    return '🔒Tag is already locked🔒'
+    return 'Tag is already locked'
   end
   end
     data[tostring(target)]['settings']['tag'] = 'yes'
@@ -819,9 +819,9 @@ local function lock_group_tag(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل هشتگ(#) دږ سوپږگږوه فعال شُد🔒'
+  return 'قُفل هشتگ(#) دږ سوپږگږوه فعال شُد'
   else
-    return '🔒Tag has been locked🔒'
+    return 'Tag has been locked'
   end
 end
 
@@ -834,7 +834,7 @@ local function unlock_group_tag(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل هشتگ(#) دږ سوپږگږوه غیر فعال بود🔓'
+  return 'قُفل هشتگ(#) دږ سوپږگږوه غیر فعال بود'
   else
     return 'Tag is not locked'
   end
@@ -844,9 +844,9 @@ local function unlock_group_tag(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل هشتگ(#) دږ سوپږگږوه غیر فعال شُد🔓'
+  return 'قُفل هشتگ(#) دږ سوپږگږوه غیر فعال شُد'
   else
-    return '🔓Tag has been unlocked🔓'
+    return 'Tag has been unlocked'
   end
 end
 
@@ -855,16 +855,16 @@ local function lock_group_spam(msg, data, target)
     return
   end
   if not is_owner(msg) then
-    return " 🔒قُفل اِسپَم دَږ سۅپږگږۅہ فعاڶ شد🔐 "
+    return " قُفل اِسپَم دَږ سۅپږگږۅہ فعاڶ شد "
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'yes' then
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل اِسپَم دَږ سۅپږگږۅہ از قَبڶ فعاڶ بۅد🔐'
+    return 'قُفل اِسپَم دَږ سۅپږگږۅہ از قَبڶ فعاڶ بۅد'
   else
-  return '🔒spam posting is already locked🔒'
+  return 'spam posting is already locked'
   end
   end
     data[tostring(target)]['settings']['lock_spam'] = 'yes'
@@ -872,9 +872,9 @@ local function lock_group_spam(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل اِسپَم دَږ سۅپږ گږۅہ فعاڶ شُڍ🔐'
+    return 'قُفل اِسپَم دَږ سۅپږ گږۅہ فعاڶ شُڍ'
     else
-    return '🔒spam posting hasBeen locked🔒'
+    return 'spam posting hasBeen locked'
   end
 end
 
@@ -887,9 +887,9 @@ local function unlock_group_spam(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل اِسپَم دَږ سۅپږگږۅہ از قَبڶ غیږ فعاڶ بۅد🔓'
+    return 'قُفل اِسپَم دَږ سۅپږگږۅہ از قَبڶ غیږ فعاڶ بۅد'
   else
-  return '🔒spam posting is already Unlocked🔓'
+  return 'spam posting is already Unlocked'
   end
   end
     data[tostring(target)]['settings']['lock_spam'] = 'no'
@@ -897,9 +897,9 @@ local function unlock_group_spam(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل اِسپَم دَږ سۅپږگږۅہ غیږ فعاڶ شُد🔓'
+    return 'قُفل اِسپَم دَږ سۅپږگږۅہ غیږ فعاڶ شُد'
     else
-    return '🔒spam posting HasBeen Unlocked🔓'
+    return 'spam posting HasBeen Unlocked'
   end
 end
 
@@ -912,9 +912,9 @@ local function lock_group_flood(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return ' 🔒قُفل فِلۅڍ دَږ سۅپږ گږۅہ از قبل فعاڶ شُڍه بود🔐 '
+    return ' قُفل فِلۅڍ دَږ سۅپږ گږۅہ از قبل فعاڶ شُڍه بود '
   else
-  return '🔒flood is already locked🔒'
+  return 'flood is already locked'
   end
   end
     data[tostring(target)]['settings']['flood'] = 'yes'
@@ -922,9 +922,9 @@ local function lock_group_flood(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل فِلۅڍ دَږ سۅپږ گږۅہ فعاڶ شُڍ🔐'
+    return 'قُفل فِلۅڍ دَږ سۅپږ گږۅہ فعاڶ شُڍ'
     else
-    return '🔒flood has been locked🔒'
+    return 'flood has been locked'
   end
 end
 
@@ -937,9 +937,9 @@ local function unlock_group_flood(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل فِلۅڍ دَږ سۅپږ گږۅہ ازقبڶ غیږفعاڶ  شُڍه بۏد🔓 '
+    return 'قُفل فِلۅڍ دَږ سۅپږ گږۅہ ازقبڶ غیږفعاڶ  شُڍه بۏد '
   else
-  return '🔓flood is not locked🔓'
+  return 'flood is not locked'
   end
   end
     data[tostring(target)]['settings']['flood'] = 'no'
@@ -947,9 +947,9 @@ local function unlock_group_flood(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل فِلۅڍ دَږ سۅپږ گږۅہ غیږفعاڶ شُڍ🔓'
+    return 'قُفل فِلۅڍ دَږ سۅپږ گږۅہ غیږفعاڶ شُڍ'
     else
-    return '🔓flood has been unlocked🔓'
+    return 'flood has been unlocked'
   end
 end
 
@@ -963,9 +963,9 @@ local function lock_group_arabic(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل چت ڪردن به زبان فارسے از قبڶ دږ سوپږگږۅه فعاڶ شده بۅڍ🔐'
+    return 'قُفل چت ڪردن به زبان فارسے از قبڶ دږ سوپږگږۅه فعاڶ شده بۅڍ'
   else
-  return '🔒arabic posting is already locked🔒'
+  return 'arabic posting is already locked'
   end
   end
     data[tostring(target)]['settings']['lock_arabic'] = 'yes'
@@ -973,9 +973,9 @@ local function lock_group_arabic(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل چت ڪردن به زبان فارسے دږ  سوپږگږۅه فعاڶ🔐شد '
+    return 'قُفل چت ڪردن به زبان فارسے دږ  سوپږگږۅه فعاڶشد '
     else 
-    return '🔒arabic posting hasBeen locked🔒'
+    return 'arabic posting hasBeen locked'
   end
 end
 
@@ -988,9 +988,9 @@ local function unlock_group_arabic(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل چت ڪردن بہ زبان فارسے از قبڶ دږ سوپږگږۅه غیږفعاڶ شده بۅد🔓'
+    return 'قُفل چت ڪردن بہ زبان فارسے از قبڶ دږ سوپږگږۅه غیږفعاڶ شده بۅد'
   else
-  return '🔒arabic posting is already Unlocked🔓'
+  return 'arabic posting is already Unlocked'
   end
   end
     data[tostring(target)]['settings']['lock_arabic'] = 'no'
@@ -998,9 +998,9 @@ local function unlock_group_arabic(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قُفل چت ڪردن بہ زبان فارسے دږ سوپږگږۅه غیږفعاڶ شد🔓'
+    return 'قُفل چت ڪردن بہ زبان فارسے دږ سوپږگږۅه غیږفعاڶ شد'
     else
-    return '🔒arabic posting HasBeen Unlocked🔓'
+    return 'arabic posting HasBeen Unlocked'
   end
 end
 
@@ -1013,9 +1013,9 @@ local function lock_group_membermod(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه از قبڶ فعاڶ شُده بۅڍ🔒'
+    return 'قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه از قبڶ فعاڶ شُده بۅڍ'
   else
-  return ' 🔒addMember is already locked🔒'
+  return ' addMember is already locked'
   end
   end
     data[tostring(target)]['settings']['lock_member'] = 'yes'
@@ -1023,9 +1023,9 @@ local function lock_group_membermod(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔒قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه فعاڶ شُد🔒'
+  return 'قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه فعاڶ شُد'
   else
-  return '🔒addMember HasBeen locked🔒'
+  return 'addMember HasBeen locked'
 end
 end
 
@@ -1038,9 +1038,9 @@ local function unlock_group_membermod(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه از قَبڶ غیږفعاڶ شُده بۅد🔓'
+    return 'قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه از قَبڶ غیږفعاڶ شُده بۅد'
   else
-  return '🔓AddMember is not locked🔓'
+  return 'AddMember is not locked'
   end
   end
     data[tostring(target)]['settings']['lock_member'] = 'no'
@@ -1048,9 +1048,9 @@ local function unlock_group_membermod(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه غیرفعاڶ شُد🔓'
+    return 'قفل اضافہ ڪردن اعضٵ بہ سۅپږ گږۅه غیرفعاڶ شُد'
     else
-    return ' 🔓AddMember hasBeen UNlocked🔓'
+    return ' AddMember hasBeen UNlocked'
   end
 end
 
@@ -1063,7 +1063,7 @@ local function lock_group_tgservice(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل Tgservice در سوپږ گږوه فعال بود🔒'
+  return ' قُفل Tgservice در سوپږ گږوه فعال بود'
   else
     return '*TGservice is already locked'
   end
@@ -1073,7 +1073,7 @@ local function lock_group_tgservice(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل Tgservice در سوپږ گږوه فعال شد🔒'
+  return ' قُفل Tgservice در سوپږ گږوه فعال شد'
   else
     return '*TGservice has been locked'
   end
@@ -1088,7 +1088,7 @@ local function unlock_group_tgservice(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل Tgservice در سوپږ گږوه غیر فعال بود🔓'
+  return 'قُفل Tgservice در سوپږ گږوه غیر فعال بود'
   else
     return '*TGService Is Not Locked!'
   end
@@ -1098,7 +1098,7 @@ local function unlock_group_tgservice(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل Tgservice در سوپږ گږوه غیر فعال شد🔓'
+  return ' قُفل Tgservice در سوپږ گږوه غیر فعال شد'
   else
     return '*TGservice has been unlocked'
   end
@@ -1113,9 +1113,9 @@ local function lock_group_sticker(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل استیڪږ دږ سۅپږ گږۅه از قبڶ فعاڶ شُڍه بۅڍ🔐'
+    return 'قفل استیڪږ دږ سۅپږ گږۅه از قبڶ فعاڶ شُڍه بۅڍ'
   else
-  return '🔒sticker posting is already locked🔒'
+  return 'sticker posting is already locked'
   end
   end
     data[tostring(target)]['settings']['lock_sticker'] = 'yes'
@@ -1123,9 +1123,9 @@ local function lock_group_sticker(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل استیڪږ دږ سۅپږ گږۅه فعاڶ شُڍ🔐'
+    return 'قفل استیڪږ دږ سۅپږ گږۅه فعاڶ شُڍ'
     else
-    return '🔒sticker posting HasBeen locked🔒'
+    return 'sticker posting HasBeen locked'
   end
 end
 local function unlock_group_sticker(msg, data, target)
@@ -1137,9 +1137,9 @@ local function unlock_group_sticker(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل استیڪږ دږ سۅپږ گږۅه از قبڶ غیږ فعاڶ شُڍه بۅڍ🔓'
+    return 'قفل استیڪږ دږ سۅپږ گږۅه از قبڶ غیږ فعاڶ شُڍه بۅڍ'
   else
-  return '🔒sticker posting is already Unlocked🔓'
+  return 'sticker posting is already Unlocked'
   end
   end
     data[tostring(target)]['settings']['lock_sticker'] = 'no'
@@ -1147,9 +1147,9 @@ local function unlock_group_sticker(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل استیڪږ دږ سۅپږ گږۅه غیږ فعاڶ شُڍ🔓'
+    return 'قفل استیڪږ دږ سۅپږ گږۅه غیږ فعاڶ شُڍ'
     else
-    return '🔒sticker posting HasBeen Unlocked🔓'
+    return 'sticker posting HasBeen Unlocked'
   end
 end
 local function lock_group_bots(msg, data, target)
@@ -1161,9 +1161,9 @@ local function lock_group_bots(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه فعال شُده بوڍ🔒'
+    return 'قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه فعال شُده بوڍ'
   else
-  return ' 🔐Bots protection is already enabled🔐'
+  return ' Bots protection is already enabled'
   end
   end
     data[tostring(target)]['settings']['lock_bots'] = 'yes'
@@ -1171,9 +1171,9 @@ local function lock_group_bots(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه فعال شُد🔒'
+    return 'قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه فعال شُد'
     else
-    return ' 🔐Bots protection has been enabled🔐'
+    return ' Bots protection has been enabled'
   end
 end
 
@@ -1186,9 +1186,9 @@ local function unlock_group_bots(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه غیر فعال شُده بود🔓'
+    return 'قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه غیر فعال شُده بود'
   else
-  return ' 🔓Bots protection is already disabled🔓'
+  return ' Bots protection is already disabled'
   end
   end
     data[tostring(target)]['settings']['lock_bots'] = 'no'
@@ -1196,9 +1196,9 @@ local function unlock_group_bots(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔐قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه غیر فعال شُد🔓'
+    return 'قفل وږوڍ رباټ هاے مُخَرِب بہ سوپږگږۅه غیر فعال شُد'
     else
-    return ' 🔓Bots protection has been disabled🔓'
+    return ' Bots protection has been disabled'
   end
 end
 
@@ -1211,9 +1211,9 @@ local function lock_group_contacts(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل اږسالہ کانتڪت دږ سۅپږگږۅه ازقبڶ فعاڶ شڍه بۅڍ🔒'
+    return 'قفل اږسالہ کانتڪت دږ سۅپږگږۅه ازقبڶ فعاڶ شڍه بۅڍ'
   else
-  return ' 🔒Contact posting is already locked🔒'
+  return ' Contact posting is already locked'
   end
   end
     data[tostring(target)]['settings']['lock_contacts'] = 'yes'
@@ -1221,9 +1221,9 @@ local function lock_group_contacts(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل اږسالہ کانتڪت دږ سۅپږگږۅه فعاڶ شڍ🔒'
+    return 'قفل اږسالہ کانتڪت دږ سۅپږگږۅه فعاڶ شڍ'
     else
-    return ' 🔒Contact posting HasBeen locked🔒'
+    return ' Contact posting HasBeen locked'
   end
 end
 
@@ -1236,9 +1236,9 @@ local function unlock_group_contacts(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل اږسالہ کانتڪت دږ سۅپږگږۅه از قبڶ غیږ فعاڶ شڍه بۅڍ🔓'
+    return 'قفل اږسالہ کانتڪت دږ سۅپږگږۅه از قبڶ غیږ فعاڶ شڍه بۅڍ'
   else
-  return ' 🔒contact  posting is already Unlocked🔓'
+  return ' contact  posting is already Unlocked'
   end
   end
     data[tostring(target)]['settings']['lock_contacts'] = 'no'
@@ -1246,9 +1246,9 @@ local function unlock_group_contacts(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-    return '🔒قفل اږسالہ کانتڪت دږ سۅپږگږۅه غیږ فعاڶ شڍ🔓 '
+    return 'قفل اږسالہ کانتڪت دږ سۅپږگږۅه غیږ فعاڶ شڍ '
     else
-    return ' 🔒contact posting HasBeen Unlocked🔓'
+    return ' contact posting HasBeen Unlocked'
   end
 end
 local function enable_strict_rules(msg, data, target)
@@ -1260,7 +1260,7 @@ local function enable_strict_rules(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تنظیماټ سختگیږانہ فعال بود🔒'
+  return ' قُفل تنظیماټ سختگیږانہ فعال بود'
   else
     return '*Settings are already strictly enforced'
   end
@@ -1270,7 +1270,7 @@ local function enable_strict_rules(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تنظیماټ سختگیږانہ فعال شد🔒'
+  return ' قُفل تنظیماټ سختگیږانہ فعال شد'
   else
     return '*Settings will be strictly enforced'
   end
@@ -1285,7 +1285,7 @@ local function disable_strict_rules(msg, data, target)
   local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return '🔐قُفل تنظیماټ سختگیږانہ غیر فعال بود🔓'
+  return 'قُفل تنظیماټ سختگیږانہ غیر فعال بود'
   else
     return '*Settings are not strictly enforced'
   end
@@ -1295,7 +1295,7 @@ local function disable_strict_rules(msg, data, target)
     local hash = 'group:'..msg.to.id
   local group_lang = redis:hget(hash,'lang')
   if group_lang then
-  return ' 🔐قُفل تنظیماټ سختگیږانہ غیر فعال شُد🔓'
+  return ' قُفل تنظیماټ سختگیږانہ غیر فعال شُد'
   else
     return '*Settings will not be strictly enforced'
   end
@@ -3287,4 +3287,4 @@ return {
   pre_process = pre_process 
 }
 
--- @permagChannel
+-- @Cafegrm
