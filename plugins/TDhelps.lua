@@ -1,5 +1,5 @@
 local function run(msg, matches)
-local @Cafegrm = [[
+local Cafegrm = [[
 
 لیست دستورات مدیریتی
  
