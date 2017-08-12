@@ -1,4 +1,4 @@
--- channel : @permagChannel
+-- channel : @Cafegrm
 do
 local function pre_process(msg)
  local hash = 'muteall:'..msg.to.id
@@ -24,7 +24,7 @@ local second = string.gsub(matches[4], 's', '')
  local num3 = tonumber(second) 
 local num4 = tonumber(num1 + num2 + num3)
 redis:setex(hash, num4, true)
- return "mute all has been enabled for\n⏺ hour(s) : "..matches[2].."\n⏺ minute(s) : "..matches[3].." \n⏺ second(s) : "..matches[4]..""
+ return "mute all has been enabled for\n hour(s) : "..matches[2].."\n minute(s) : "..matches[3].." \n second(s) : "..matches[4]..""
  end
  end
 if matches[1] == 'unmuteall' and is_momod(msg) or matches[1] =='مصوت کردن همه' and is_momod(msg) then
@@ -46,4 +46,4 @@ run = run,
   pre_process = pre_process
 }
 end
--- our channel : @permagChannel
+-- our channel : @Cafegrm
