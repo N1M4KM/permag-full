@@ -31,5 +31,5 @@ return {
   run = run
 }
 end
---edit by @N1M4KM
---Our channel : @Cafegrm
+--edit by @CliApi
+--Our channel : @create_antispam_bot
