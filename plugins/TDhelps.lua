@@ -1,5 +1,5 @@
 local function run(msg, matches)
-local Cafegrm = [[
+local permagbot = [[
 
 لیست دستورات مدیریتی
  
